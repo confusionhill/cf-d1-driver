@@ -19,7 +19,7 @@ import (
     "database/sql"
     "fmt"
 
-    d1 "github.com/dika/cf-d1-go-driver/pkg/d1"
+    d1 "github.com/confusionhill/cf-d1-driver/pkg/d1"
 )
 
 func main() {

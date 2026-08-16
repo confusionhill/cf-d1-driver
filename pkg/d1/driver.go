@@ -8,7 +8,7 @@ import (
 	"io"
 	"sync"
 
-	cf "github.com/dika/cf-d1-go-driver/internal/cloudflare"
+	cf "github.com/confusionhill/cf-d1-driver/internal/cloudflare"
 )
 
 func init() {

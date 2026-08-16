@@ -8,7 +8,7 @@ import (
 	"net/url"
 	"os"
 
-	_ "github.com/dika/cf-d1-go-driver/pkg/d1"
+	_ "github.com/confusionhill/cf-d1-driver/pkg/d1"
 )
 
 // config contains the Cloudflare D1 credentials for a local workstation.

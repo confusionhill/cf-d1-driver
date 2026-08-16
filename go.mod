@@ -1,4 +1,4 @@
-module github.com/dika/cf-d1-go-driver
+module github.com/confusionhill/cf-d1-driver
 
 go 1.22
 
