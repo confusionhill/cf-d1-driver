@@ -53,17 +53,11 @@ func main() {
 }
 ```
 
-For `sqlx`, bind the driver and import the package normally:
+For `sqlx`, use the separate example module in `examples/sqlx_app`, which binds the driver and imports the package for consumer-side integration:
 
-```go
-import (
-    "github.com/jmoiron/sqlx"
-    d1 "github.com/confusionhill/cf-d1-driver/pkg/d1"
-)
-
-func init() {
-    sqlx.BindDriver("d1", sqlx.QUESTION)
-}
+```bash
+cd examples/sqlx_app
+go run .
 ```
 
 ## Supported and unsupported behavior
@@ -118,12 +112,32 @@ batch := []d1.BatchQuery{
 }
 ```
 
-## Sample app
+## Sample apps
 
-A sample executable lives under `examples/sqlx_app` and demonstrates `sqlx` usage with the D1 driver.
+### Driver-only sample
+
+This repository includes a plain `database/sql` example that registers the driver with a blank import.
 
 ```bash
-go run ./examples/sqlx_app
+cd examples/driver_only
+go run .
+```
+
+This reads `config.json` from the repo root and runs a simple `SELECT 1 AS ok` query against your D1 database.
+
+### sqlx sample
+
+The `sqlx` integration lives in its own Go module so it stays optional.
+
+```bash
+cd examples/sqlx_app
+go run .
+```
+
+Or from the repo root:
+
+```bash
+go run ./examples/driver_only
 ```
 
 ## Status
