@@ -1,5 +1,7 @@
 # cf-d1-go-driver
 
+> Unofficial project. This driver is still experimental and may change without notice.
+
 A Cloudflare D1 Go driver built for `database/sql` compatibility and `sqlx` usage.
 
 ## Design goals
@@ -63,3 +65,5 @@ go run ./examples/sqlx_app
 ## Status
 
 This repository is being built incrementally using TDD and mock-based unit tests.
+
+This project is unofficial and still experimental. It is intended for learning, prototyping, and early integration work, not production guarantees.
