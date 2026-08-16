@@ -1,0 +1,33 @@
+# Go build artifacts
+/bin/
+/build/
+/dist/
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Test binary, built with `go test -c`
+*.test
+
+# Go workspace files
+*.sum
+
+# Environment / secrets
+.env
+.env.*
+config.json
+secrets.json
+*.pem
+*.key
+
+# OS/editor junk
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Project-local runtime artifacts
+/tmp/
+coverage.out

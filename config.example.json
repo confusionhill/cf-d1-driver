@@ -1,0 +1,6 @@
+{
+  "account_id": "your_account_id",
+  "database_id": "your_database_id",
+  "token": "your_cloudflare_api_token",
+  "api_base": "https://api.cloudflare.com/client/v4"
+}
