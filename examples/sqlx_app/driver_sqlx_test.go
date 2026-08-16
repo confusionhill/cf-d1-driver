@@ -1,4 +1,4 @@
-package d1
+package main
 
 import (
 	"testing"
@@ -7,9 +7,7 @@ import (
 )
 
 func TestSQLXBindRegistration(t *testing.T) {
-	// sqlx binding is a consumer concern, not a core driver dependency.
 	sqlx.BindDriver("d1", sqlx.QUESTION)
-
 	if got := sqlx.BindType("d1"); got != sqlx.QUESTION {
 		t.Fatalf("expected d1 bind type to be sqlx.QUESTION, got %d", got)
 	}
