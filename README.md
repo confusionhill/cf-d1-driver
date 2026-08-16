@@ -52,6 +52,14 @@ batch := []d1.BatchQuery{
 }
 ```
 
+## Sample app
+
+A sample executable lives under `examples/sqlx_app` and demonstrates `sqlx` usage with the D1 driver.
+
+```bash
+go run ./examples/sqlx_app
+```
+
 ## Status
 
 This repository is being built incrementally using TDD and mock-based unit tests.

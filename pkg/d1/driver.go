@@ -170,7 +170,7 @@ type Rows struct {
 }
 
 func (r *Rows) Columns() []string { return r.columns }
-func (r *Rows) Close() error { return nil }
+func (r *Rows) Close() error      { return nil }
 func (r *Rows) Next(dest []driver.Value) error {
 	r.index++
 	if r.index >= len(r.rows) {

@@ -31,16 +31,16 @@ type QueryResult struct {
 
 // QueryMeta is the metadata returned by D1.
 type QueryMeta struct {
-	ChangedDB     bool   `json:"changed_db,omitempty"`
-	Changes       int64  `json:"changes,omitempty"`
-	Duration      float64 `json:"duration,omitempty"`
-	LastRowID     int64  `json:"last_row_id,omitempty"`
-	RowsRead      int64  `json:"rows_read,omitempty"`
-	RowsWritten   int64  `json:"rows_written,omitempty"`
-	SizeAfter     int64  `json:"size_after,omitempty"`
-	ServedByClo   string `json:"served_by_colo,omitempty"`
-	ServedByPrimary bool `json:"served_by_primary,omitempty"`
-	ServedByRegion string `json:"served_by_region,omitempty"`
+	ChangedDB       bool    `json:"changed_db,omitempty"`
+	Changes         int64   `json:"changes,omitempty"`
+	Duration        float64 `json:"duration,omitempty"`
+	LastRowID       int64   `json:"last_row_id,omitempty"`
+	RowsRead        int64   `json:"rows_read,omitempty"`
+	RowsWritten     int64   `json:"rows_written,omitempty"`
+	SizeAfter       int64   `json:"size_after,omitempty"`
+	ServedByClo     string  `json:"served_by_colo,omitempty"`
+	ServedByPrimary bool    `json:"served_by_primary,omitempty"`
+	ServedByRegion  string  `json:"served_by_region,omitempty"`
 }
 
 // Client is the abstraction boundary for the Cloudflare HTTP implementation.
