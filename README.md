@@ -66,32 +66,44 @@ func init() {
 }
 ```
 
-## Transaction model
+## Supported and unsupported behavior
 
-D1 does not support SQL `BEGIN`, `COMMIT`, or `ROLLBACK` statements.
+### Supported
 
-Use the batch API for atomic multi-step writes:
+- `database/sql` driver registration via `sql.Register("d1", &Driver{})`
+- `sql.Open("d1", dsn)` and `db.Ping()` style usage
+- simple query execution with `QueryContext` / `ExecContext`
+- result scanning into Go values using the standard `database/sql` row API
+- basic D1 HTTP request/response handling for query and batch operations
+- `sqlx` consumer integration through `sqlx.BindDriver("d1", sqlx.QUESTION)`
+- D1 batch semantics for atomic multi-statement writes
 
-```go
-batch := []d1.BatchQuery{
-    {SQL: "INSERT INTO users (name) VALUES (?)", Params: []any{"alice"}},
-    {SQL: "UPDATE users SET name = ? WHERE name = ?", Params: []any{"alicia", "alice"}},
-}
-```
+### Not supported or intentionally limited
 
-## Sample app
+- SQL transaction commands such as `BEGIN`, `COMMIT`, and `ROLLBACK`
+- prepared statement support via `Prepare` / `Stmt` in the current driver layer
+- full SQLite compatibility semantics outside the subset D1 exposes over its API
+- streaming or advanced database features that Cloudflare D1 does not expose through its HTTP API
+- any behavior that requires native SQLite engine features not provided by D1
 
-A sample executable lives under `examples/sqlx_app` and demonstrates `sqlx` usage with the D1 driver.
+This driver intentionally reflects Cloudflare D1 semantics instead of pretending to be a full SQLite driver.
 
-```bash
-go run ./examples/sqlx_app
-```
+## Official D1 API references
 
-## Status
+This implementation is based on the Cloudflare D1 HTTP API contract used for:
 
-This repository is being built incrementally using TDD and mock-based unit tests.
+- database queries
+- statement execution
+- batch operations
+- metadata returned by D1 results
 
-This project is unofficial and still experimental. It is intended for learning, prototyping, and early integration work, not production guarantees.
+Official docs:
+
+- Cloudflare D1 docs: https://developers.cloudflare.com/d1/
+- D1 API reference: https://developers.cloudflare.com/api/operations/cloudflare-d1-query-database
+- D1 batch operations reference: https://developers.cloudflare.com/api/operations/cloudflare-d1-create-database
+
+The driver follows the D1 API contract rather than SQLite semantics, so the implementation is intentionally aligned with what Cloudflare exposes.
 
 ## Transaction model
 
